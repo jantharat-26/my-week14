@@ -4,10 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-
-Route::get('/', function () {
-    return view("index");
-});
+use App\Http\Controllers\BlogController;
+//นักอ่าน
+Route::get('/', [BlogController::class, 'index']);
+Route::get('detail/{id}', [BlogController::class, 'detail']);
 
 Route::get('/about', function () {
     return view("about");
@@ -16,7 +16,7 @@ Route::get('/about', function () {
 Route::get('/blog', function () {
     return view("blog");
 });
-
+//นักเขียน
 Route::prefix('author')->name('author.')->group(function () {
     Route::get('/abouts', [AdminController::class, 'abouts'])->name("abouts");
     Route::get('/blogs', [AdminController::class, 'blogs'])->name("blogs");

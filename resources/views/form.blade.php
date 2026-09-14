@@ -18,7 +18,7 @@
 
         <div class="form-grop">
             <label for="title">เนื้อหา</label>
-            <textarea name="content" class="form-control" cols="30" rows="10"> </textarea>
+            <textarea name="content" id="content" class="form-control" cols="30" rows="10"> </textarea>
         </div>
         @error('content')
             <div class="my-2">
